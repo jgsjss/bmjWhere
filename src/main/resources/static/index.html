@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>BMJ - 부산 맛집 어디GO?</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="../../../../../../Users/admin/Desktop/static/css/simple-sidebar.css" rel="stylesheet">
+    <!--    <link href="https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&display=swap" rel="stylesheet">-->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+            integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+            integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+            crossorigin="anonymous"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&display=swap" rel="stylesheet">
+    <!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"-->
+    <!--          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Nanum Gothic', sans-serif;
+        }
+
+        img {
+
+            object-fit: cover;
+        }
+
+        .header {
+            position: relative;
+            width: auto;
+            height: auto;
+            background-position: center;
+            background-size: cover;
+            z-index: 10;
+        }
+
+        .header1 {
+            width: auto;
+            height: auto;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            left: 0;
+            right: 0;
+        }
+
+        .content {
+            width: auto;
+            height: auto;
+            margin-right: 100px;
+            margin-left: 100px;
+            /*font-family: 'Cute Font', cursive;*/
+            /*font-family: 'East Sea Dokdo', cursive;*/
+        }
+
+        .footer {
+            width: 100%;
+            height: auto;
+            background-color: #343a40;
+            color: darkgray;
+        }
+
+        .jb-text {
+            padding: 5px 10px;
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 6;
+            width: 50%;
+            height: 100px;
+            border-radius: 20%;
+
+        }
+
+        #input1 {
+            width: auto;
+            height: auto;
+            round-clip: orange;
+            border-radius: 10px;
+            border-color: orange;
+        }
+
+        #input2 {
+            width: 70px;
+            height: 50px;
+            background-color: orange;
+            color: white;
+
+        }
+
+        h3 {
+            color: darkorange;
+        }
+
+        h4 {
+            font-size: 18px;
+        }
+
+        p {
+            font-size: 15px;
+            color: #4e555b;
+        }
+
+        p1 {
+            color: white;
+            font-size: 10px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="header">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">
+            <img src="/image/logo2.png">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/resturant/eatDeal">EAT딜
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <!--                            <li class="nav-item active">-->
+                <!--                                <a class="nav-link" href="#">카테고리별 맛집</a>-->
+                <!--                            </li>-->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                       aria-expanded="false">카테고리별 맛집</a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a class="dropdown-item" href="/resturant/categoryHansik">한식</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/resturant/categoryIlsik">일식</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/resturant/categoryJongsik">중식</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/resturant/categoryYangsik">양식</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/resturant/categoryCafe">카페</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/resturant/list">맛집리스트</a>
+                </li>
+            </ul>
+            <p1>
+                <!--       <div sec:authorize="hasRole('USER')">Has USER ROLE</div>-->
+                <span sec:authorize="isAnonymous()">
+                            <a href="/resturant/register2">
+                        <button type="button" class="btn btn-outline-primary">회원가입</button>
+                    </a> </span>
+
+                <span sec:authorize="isAnonymous()">
+                                <a href="/resturant/memberOnly">
+                                <button type="button" class="btn btn-outline-primary">로그인</button>
+                            </a>
+                          </span>
+
+
+                <!-- <div sec:authorize="hasRole('ADMIN')"><a th:href="@{/resturant/adminOnly}">
+                     <button type="button" class="btn btn-outline-primary">관리자페이지</button>
+                 </a></div>-->
+            </p1>
+        </div>
+    </nav>
+</div>
+
+<div class="header1">
+    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="image/content/고화질사진1.jpg" class="d-block w-100" height="600" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="image/content/고화질사진2.jpg" class="d-block w-100" height="600" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="image/content/고화질사진4.jpg" class="d-block w-100" height="600" alt="...">
+            </div>
+        </div>
+    </div>
+    <div class="jb-text">
+        <form action="/resturant/list" method="get" id="searchForm">
+            <div class="input-group">
+                <input type="hidden" name="page" value="1">
+                <div class="input-group-prepend" hidden="hidden">
+                    <select class="custom-select" name="type">
+                        <option selected="selected" value="tac">------</option>
+                    </select>
+                </div>
+
+                <input id="input1" type="text" autocomplete="off" class="form-control" name="keyword" value=""
+                       placeholder="지역 식당 또는 음식">
+                <button id="input2" class="btn btn-outline-success my-2 my-sm-0" type="submit">검색</button>
+            </div>
+        </form>
+        </p>
+    </div>
+</div>
+<br><br><br>
+
+<div class="content">
+    <h3>믿고 보는 맛집 리스트</h3>
+    <div class="card-deck">
+        <div class="card">
+            <a href="mainFood/mainFood.html">
+                <a href="http://localhost:8081/resturant/read?rno=19&page=1">
+                    <img src="image/음식점사진/사이먼커피2.jpg" class="card-img-top" alt="..." width="450px" height="300px">
+                </a>
+            </a>
+            <div class="card-body">
+                <h4 class="card-title">사이먼커피</h4>
+                <p class="card-text">부산 연제구 - 카페</p>
+            </div>
+        </div>
+        <div class="card">
+            <a href="http://localhost:8081/resturant/read?rno=38&page=1">
+                <img src="image/음식점사진/톤쇼우1.jpg"
+                     class="card-img-top" alt="..." width="450px" height="300px">
+            </a>
+            <div class="card-body">
+                <h4 class="card-title">톤쇼우</h4>
+                <p class="card-text">부산 수영구 - 돈가스</p>
+            </div>
+        </div>
+        <div class="card">
+            <a href="http://localhost:8081/resturant/read?rno=44&page=1">
+                <img src="image/음식점사진/태종대%20욜로조개구이1.jpg"
+                     class="card-img-top" alt="..." width="450px" height="300px">
+            </a>
+            <div class="card-body">
+                <h4 class="card-title">태종대 욜로조개구이</h4>
+                <p class="card-text">부산 영도구 - 조개구이</p>
+            </div>
+        </div>
+    </div>
+    <br> <br>
+
+
+    <h3>해운대 주변 맛집 리스트</h3>
+    <div class="card-deck">
+        <div class="card">
+            <a href="http://localhost:8081/resturant/read?rno=45&page=1">
+                <img src="image/음식점사진/해운대암소갈비집3.jpg" class="card-img-top" alt="..." width="450px" height="300px">
+            </a>
+            <div class="card-body">
+                <h4 class="card-title">해운대 암소갈비집</h4>
+                <p class="card-text">부산 해운대구 - 육류</p>
+            </div>
+        </div>
+        <div class="card">
+            <a href="http://localhost:8081/resturant/read?rno=46&page=1">
+                <img src="image/음식점사진/솔내음한정식3.jpg"
+                     class="card-img-top" alt="..." width="450px" height="300px">
+            </a>
+            <div class="card-body">
+                <h4 class="card-title">솔내음한정식</h4>
+                <p class="card-text">부산 해운대구 - 한정식</p>
+            </div>
+        </div>
+        <div class="card">
+            <a href="http://localhost:8081/resturant/read?rno=37&page=1">
+                <img src="image/음식점사진/스케줄해운대2.jpg"
+                     class="card-img-top" alt="..." width="450px" height="300px">
+            </a>
+            <div class="card-body">
+                <h4 class="card-title">스케줄해운대</h4>
+                <p class="card-text">부산 해운대구 - 양식</p>
+            </div>
+        </div>
+    </div>
+
+    <br><br>
+    <h3>광안리 주변 맛집 리스트</h3>
+    <div class="card-deck">
+        <div class="card">
+            <a href="http://localhost:8081/resturant/read?rno=38&page=1">
+                <img src="image/음식점사진/톤쇼우1.jpg" class="card-img-top" alt="..." width="450px" height="300px">
+            </a>
+            <div class="card-body">
+                <h4 class="card-title">톤쇼우</h4>
+                <p class="card-text">부산 수영구 - 돈가스</p>
+            </div>
+        </div>
+        <div class="card">
+            <a href="http://localhost:8081/resturant/read?rno=47&page=1">
+                <img src="image/음식점사진/문버거2.jpg"
+                     class="card-img-top" alt="..." width="450px" height="300px">
+            </a>
+            <div class="card-body">
+                <h4 class="card-title">문버거</h4>
+                <p class="card-text">부산 수영구 - 브런치</p>
+            </div>
+        </div>
+        <div class="card">
+            <a href="http://localhost:8081/resturant/read?rno=39&page=1">
+                <img src="image/음식점사진/매드독스2.jpg"
+                     class="card-img-top" alt="..." width="450px" height="300px">
+            </a>
+            <div class="card-body">
+                <h4 class="card-title">매드독스</h4>
+                <p class="card-text">부산 수영구 - 피자</p>
+            </div>
+        </div>
+    </div>
+    <br> <br>
+
+    <h3>서면 주변 맛집 리스트</h3>
+    <div class="card-deck">
+        <div class="card">
+            <a href="http://localhost:8081/resturant/read?rno=8&page=1">
+                <img src="image/음식점사진/이슈모리1.jpg" class="card-img-top" alt="..." width="450px" height="300px">
+            </a>
+            <div class="card-body">
+                <h4 class="card-title">이슈모리</h4>
+                <p class="card-text">부산 진구 - 초밥, 롤</p>
+            </div>
+        </div>
+        <div class="card">
+            <a href="http://localhost:8081/resturant/read?rno=48&page=1">
+                <img src="image/음식점사진/라푀유크로와상2.jpg"
+                     class="card-img-top" alt="..." width="450px" height="300px">
+            </a>
+            <div class="card-body">
+                <h4 class="card-title">라푀유크로와상</h4>
+                <p class="card-text">부산 진구 - 베이커리</p>
+            </div>
+        </div>
+        <div class="card">
+            <a href="http://localhost:8081/resturant/read?rno=7&page=1">
+                <img src="image/음식점사진/몫몫2.jpg"
+                     class="card-img-top" alt="..." width="450px" height="300px">
+            </a>
+            <div class="card-body">
+                <h4 class="card-title">몫몫</h4>
+                <p class="card-text">부산 진구 - 일식당</p>
+            </div>
+        </div>
+    </div>
+    <br> <br>
+
+    <h3>남포동 주변 맛집 리스트</h3>
+    <div class="card-deck">
+        <div class="card">
+            <a href="http://localhost:8081/resturant/read?rno=9&page=1">
+                <img src="image/음식점사진/우사기1.jpg" class="card-img-top" alt="..." width="450px" height="300px">
+            </a>
+            <div class="card-body">
+                <h4 class="card-title">우사기</h4>
+                <p class="card-text">부산 중구 - 일식당</p>
+            </div>
+        </div>
+        <div class="card">
+            <a href="http://localhost:8081/resturant/read?rno=49&page=1">
+                <img src="image/음식점사진/깡돼후4.jpg"
+                     class="card-img-top" alt="..." width="450px" height="300px">
+            </a>
+            <div class="card-body">
+                <h4 class="card-title">깡돼후</h4>
+                <p class="card-text">부산 중구 - 육류</p>
+            </div>
+        </div>
+        <div class="card">
+            <a href="http://localhost:8081/resturant/read?rno=50&page=1">
+                <img src="image/음식점사진/공순대4.jpg"
+                     class="card-img-top" alt="..." width="450px" height="300px">
+            </a>
+            <div class="card-body">
+                <h4 class="card-title">공순대</h4>
+                <p class="card-text">부산 중구 - 이북음식</p>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+
+<div class="footer">
+    <div class="container">
+        <footer class="d-flex flex-wrap justify-content-center align-items-center py-2 my-0 border-top">
+            <small>업체명 : @BMJ WHERE? 주소 : 부산광역시 수영구 광남로 70 사업자등록번호 : 221-10-150219 고객센터: 1588-1588</small>
+            <small>@BMJ WHERE의 모든 상품 이미지 및 컨텐츠의 저작권은 BMJ WHERE에 있으며, 무단 사용시 법적제재를 받을 수 있습니다.</small>
+        </footer>
+    </div>
+</div>
+
+<div class="d-flex" id="wrapper">
+    <div class="container-fluid">
+        <th:block th:replace="${content}"></th:block>
+    </div>
+</div>
+<!-- /#page-content-wrapper -->
+
+<!-- /#wrapper -->
+
+<!-- Menu Toggle Script -->
+<script>
+    $("#menu-toggle").click(function (e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+</script>
+
+<!-- Bootstrap core JavaScript -->
+<script src="../../../../../../Users/admin/Desktop/static/vendor/jquery/jquery.min.js"></script>
+<script src="../../../../../../Users/admin/Desktop/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
